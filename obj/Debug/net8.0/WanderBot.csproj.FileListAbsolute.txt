@@ -31,3 +31,10 @@
 /root/home/Personal Projects/WanderBot/bin/Debug/net8.0/Microsoft.Extensions.Configuration.Abstractions.dll
 /root/home/Personal Projects/WanderBot/bin/Debug/net8.0/Microsoft.Extensions.Primitives.dll
 /root/home/Personal Projects/WanderBot/bin/Debug/net8.0/Sprache.dll
+/root/home/Personal Projects/WanderBot/obj/Debug/net8.0/WanderBot.sourcelink.json
+/root/home/Personal Projects/WanderBot/bin/Debug/net8.0/Microsoft.Extensions.Configuration.Binder.dll
+/root/home/Personal Projects/WanderBot/bin/Debug/net8.0/Microsoft.Extensions.Http.dll
+/root/home/Personal Projects/WanderBot/bin/Debug/net8.0/Microsoft.Extensions.Logging.dll
+/root/home/Personal Projects/WanderBot/bin/Debug/net8.0/Microsoft.Extensions.Logging.Abstractions.dll
+/root/home/Personal Projects/WanderBot/bin/Debug/net8.0/Microsoft.Extensions.Options.dll
+/root/home/Personal Projects/WanderBot/bin/Debug/net8.0/OpenAI_API.dll

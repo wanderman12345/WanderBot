@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WanderBot")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2d1d8f291adcefaad12436a4d36980424c824fd9")]
 [assembly: System.Reflection.AssemblyProductAttribute("WanderBot")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WanderBot")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
