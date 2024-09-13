@@ -8,6 +8,7 @@ using Discord.WebSocket;
 using DotNetEnv;
 using OpenAI_API;
 using OpenAI_API.Completions;
+using OpenAI_API.Chat;
 
 namespace WanderBot
 {
@@ -22,6 +23,7 @@ namespace WanderBot
             Env.Load();
             token = Environment.GetEnvironmentVariable("TOKEN");
             string openAiApiKey = Environment.GetEnvironmentVariable("OPENAI_API_KEY");
+            APIAuthentication aPIAuthentication = new APIAuthentication(openAiApiKey);
             openAiApi = new OpenAIAPI(openAiApiKey);
 
             this.client = new DiscordSocketClient();
@@ -45,21 +47,28 @@ namespace WanderBot
 
         private async Task<string> GetOpenAIResponse(string prompt)
         {
-            var completionRequest = new CompletionRequest
-            {
-                Prompt = prompt,
-                Model = "asst_3uOiy53Sypw1p4BjGJbynnAr",
-                MaxTokens = 50
-            };
+                var messages = new List<ChatMessage>
+                {
+                    new ChatMessage(ChatMessageRole.System, "You are a helpful assistant that mimicks hank schrader from breaking bad"),
+                    new ChatMessage(ChatMessageRole.User, prompt)
+                };
 
-            Console.WriteLine($"Waiting for response");
-            var completionResult = await openAiApi.Completions.CreateCompletionAsync(completionRequest);
-              Console.WriteLine("Received response from OpenAI.");
-            Console.WriteLine($"OpenAI response: {completionResult.Completions[0].Text}");
-            return completionResult.Completions[0].Text.Trim();
-        }
+                var chatRequest = new ChatRequest
+                {
+                    Model = "gpt-3.5-turbo",
+                    Messages = messages,
+                    MaxTokens = 80
+                };
 
-        private async Task ReplyAsync(SocketMessage message, string response)
+                var chatResult = await openAiApi.Chat.CreateChatCompletionAsync(chatRequest);
+                var generatedText = chatResult.Choices[0].Message.Content;
+
+                Console.WriteLine("Generated text:");
+                Console.WriteLine(generatedText);
+
+                return generatedText;
+        }       
+         private async Task ReplyAsync(SocketMessage message, string response)
         {
             await message.Channel.SendMessageAsync(response);
         }
